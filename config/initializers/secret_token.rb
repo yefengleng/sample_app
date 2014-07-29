@@ -12,8 +12,8 @@
 require 'securerandom'
 
 def secure_token
-  token_file = Rails.root.jion(' .secret')
-  if File.exist?(tolen_file)
+  token_file = Rails.root.join(' .secret')
+  if File.exist?(token_file)
     File.read(token_file).chomp
   else
     token = SecureRandom.hex(64)
@@ -23,5 +23,4 @@ def secure_token
 end
 
 SampleApp::Application.config.secret_key_base = secure_token
-SampleApp::Application.config.secret_key_base = '3745cb2925c397eca0bd669385ebe5e1c2c234318adbf5545f95ce7eded0890af6b2b7992d5be3f251edc15827c495a71273cad2a51d91c38f913e8d3d665268'
 
